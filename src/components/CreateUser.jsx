@@ -7,7 +7,7 @@ const CreateUser = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    axios.post("http://localhost:80/api/user/save", inputs);
+    axios.post("http://localhost:80/apiCrud/api/user/save", inputs);
     console.log(inputs);
   };
 
