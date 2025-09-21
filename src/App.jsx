@@ -1,12 +1,32 @@
-import { useState } from "react";
+import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
+import "./App.css";
+import ListUser from "./components/ListUser";
+import CreateUser from "./components/CreateUser";
+import EditUser from "./components/EditUser";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <div>hola mundo</div>
-    </>
+    <div className="App">
+      <h5>React CRUD operations using PHP API and Mysql</h5>
+
+      <BrowserRouter>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">List Users</Link>
+            </li>
+            <li>
+              <Link to="user/create">create User</Link>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route index element={<ListUser />} />
+          <Route path="user/create" element={<CreateUser />} />
+          <Route path="user/:id/edit" element={<EditUser />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
